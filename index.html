@@ -773,18 +773,7 @@
     transition:border-color .2s,color .2s;
   }
   .modal-btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
-  .modal-note{
-    margin-top:1rem;
-    padding:.75rem 1rem;
-    background:rgba(0,229,255,0.04);
-    border:1px solid var(--border);
-    border-radius:6px;
-    font-family:'DM Mono',monospace;
-    font-size:.75rem;
-    color:var(--muted);
-    display:flex;align-items:center;gap:.5rem;
-  }
-  .modal-note::before{content:'ℹ';color:var(--accent)}
+
 
   @media(max-width:768px){
     nav{padding:1rem 1.5rem}
@@ -1132,7 +1121,7 @@
         <span class="project-tag">Algorithms</span>
         <span class="project-tag">Simulation</span>
       </div>
-      <a href="javascript:void(0)" class="project-link" data-project="metro">View Details ↗</a>
+      <a href="javascript:void(0)" class="project-link" data-project="metro">View on GitHub ↗</a>
     </div>
 
     <!-- RISK GAME -->
@@ -1148,7 +1137,7 @@
         <span class="project-tag">Game Logic</span>
         <span class="project-tag">OOP</span>
       </div>
-      <a href="javascript:void(0)" class="project-link" data-project="risk">View Details ↗</a>
+      <a href="javascript:void(0)" class="project-link" data-project="risk">View on GitHub ↗</a>
     </div>
 
     <!-- JOB FAIR -->
@@ -1270,7 +1259,6 @@
     <div class="modal-stack-title">Stack</div>
     <div class="modal-tags" id="modalTags"></div>
     <div class="modal-actions" id="modalActions"></div>
-    <div class="modal-note" id="modalNote"></div>
   </div>
 </div>
 
@@ -1337,32 +1325,36 @@ const projects = {
     title: 'Ustaad — AI Service Orchestrator for Informal Economy',
     desc: 'A full agentic platform built for the Google AI Hackathon that connects users to informal service providers via multilingual natural-language requests. Features multi-agent AI orchestration via Google Gemini, multilingual NLP (Urdu, Roman Urdu, English, code-switching), dynamic pricing with transparent breakdowns, 6+ factor provider matching, dispute resolution, and a service-quality feedback loop. Built as a mobile app (Android via Capacitor) with a Next.js/TypeScript web frontend and a FastAPI Python backend on Google Cloud.',
     stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Capacitor (Android)', 'FastAPI', 'Python', 'Pydantic', 'Google Gemini AI', 'Firebase / Firestore', 'Google Cloud', 'Pub/Sub', 'Cloud Translate', 'JWT / bcrypt'],
-    github: 'https://github.com/Immad-Baber/Ai_Seekho_app',
+    github: 'https://github.com/Immad-Baber',
     live: null,
+    note: 'Hackathon submission — add your GitHub repo link and demo video link here.'
   },
   evac: {
     eyebrow: '02 · AI / ML + Pathfinding · Live App',
     title: 'Smart Emergency Evacuation Planner',
     desc: 'Trained an ML classifier that benchmarks BFS, GBFS, and A* across thousands of simulated emergency scenarios and recommends the optimal algorithm in real time. Features dynamic fire spread simulation with per-cell probability scoring, live route re-planning when obstacles change, and side-by-side algorithm performance visualizations. Full ML pipeline: data generation, preprocessing, model training, and metric evaluation — deployed as a public Streamlit app.',
     stack: ['Python', 'Streamlit', 'Scikit-learn', 'BFS / GBFS / A*', 'Matplotlib', 'Pandas', 'NumPy'],
-    github: 'https://github.com/Immad-Baber/AI-ML-Project-',
-    live:  'https://smart-evacuation-planner.streamlit.app',
+    github: 'https://github.com/Immad-Baber',
+    live: null,
+    note: 'Paste your Streamlit app URL into the Live App button above.'
   },
   cda: {
     eyebrow: '03 · Process Mining + Agentic AI',
     title: 'CDA Bus Route Process Mining & AI Trip Planner',
     desc: 'Extracted structured route data from CDA Islamabad\'s PDF transit schedules, constructed XES-compliant event logs, and built an interactive GUI with process discovery (via PM4Py), bottleneck detection, and throughput analytics. Integrated an agentic AI trip planner grounded entirely in the real route data — capable of answering natural-language queries like "How do I get from Khanna Pul to NUST?" with route options, transfer points, and estimated travel time.',
     stack: ['Python', 'PM4Py', 'XES Standard', 'Process Mining', 'Agentic AI', 'Tkinter GUI', 'Pandas', 'PDF Parsing', 'Claude / Gemini API'],
-    github: 'https://github.com/Saad-Abdulah/cda-bus-process-mining.git',
+    github: 'https://github.com/Immad-Baber',
     live: null,
+    note: 'University project — add your GitHub repo link to point recruiters here.'
   },
   freelancer: {
     eyebrow: '04 · Full-Stack Platform · Team of 4',
     title: 'National Freelancer & Skill Verification System',
     desc: 'National-scale platform built with a team of 4, serving 3 distinct user roles (admin, freelancer, employer). Full Node.js REST API backend with Supabase (PostgreSQL) as the database and a React frontend. I owned the backend + frontend integration module — one of 4 modules in the Software Project Management course. Delivered SRS, SDD, and SPMP documentation as part of the formal SDLC process managed via Jira.',
     stack: ['Node.js', 'Express.js', 'React.js', 'Supabase (PostgreSQL)', 'REST API', 'Jira', 'Agile / Scrum'],
-    github: 'https://github.com/Immad-Baber/SPM-module-3',
+    github: 'https://github.com/Immad-Baber',
     live: null,
+    note: 'Team project — add the GitHub repo URL here.'
   },
   cicd: {
     eyebrow: '05 · DevOps · Docker · Ubuntu Server',
@@ -1371,44 +1363,52 @@ const projects = {
     stack: ['Docker', 'Docker Compose', 'Node.js', 'MongoDB', 'Ubuntu Server', 'GitHub Actions', 'Networking', '.env config'],
     github: 'https://github.com/Immad-Baber',
     live: null,
+    note: 'Add your Docker Hub image URL and GitHub repo here.'
   },
   metro: {
     eyebrow: '06 · Systems Design · Simulation',
     title: 'Metro System Simulation',
     desc: 'Designed and implemented a metro transit system simulation — modeling stations, routes, train scheduling, and passenger flow logic. Core focus was on applying data structures and algorithms to solve real-world infrastructure problems: graph-based routing, queue management for passenger handling, and schedule optimization.',
     stack: ['C++ / Python', 'Graphs', 'Queues', 'Data Structures', 'Algorithms', 'Simulation'],
-    github: 'https://github.com/Saad-Abdulah/cda-bus-process-mining.git',
+    github: 'https://github.com/Immad-Baber',
     live: null,
+    note: 'Add your GitHub repo link here to show source code.'
   },
   risk: {
     eyebrow: '07 · Systems / Graphics · C++ + OpenGL',
     title: 'Risk — Strategy Board Game in C++',
     desc: 'Full implementation of the classic Risk board game in C++ using OpenGL for real-time 2D graphics rendering. Built from scratch: the entire game loop engine, territory map rendering (GLUT/GLEW), turn-based logic, army placement system, dice-based battle resolution, and player win/loss detection. A pure systems and graphics engineering challenge.',
     stack: ['C++', 'OpenGL', 'GLUT', 'GLEW', 'OOP', 'Game Engine Logic', '2D Rendering'],
+    github: 'https://github.com/Immad-Baber',
     live: null,
+    note: 'Add your GitHub repo link here.'
   },
   jobfair: {
     eyebrow: '08 · Desktop App · C# + .NET',
     title: 'Job Fair Management System',
     desc: 'Desktop application built for managing a full job fair lifecycle — registrations, booth scheduling for 20+ vendor slots, attendee sign-ups, and real-time conflict detection that eliminates double-booking errors entirely. Admin dashboard shows a live slot overview, exportable attendance/booth reports, and full CRUD operations backed by MySQL Server.',
     stack: ['C#', '.NET Windows Forms', 'MySQL Server', 'CRUD', 'Desktop UI', 'Admin Dashboard'],
+    github: 'https://github.com/Immad-Baber',
     live: null,
+    note: 'Add your GitHub repo link here.'
   },
   wordpress: {
     eyebrow: '09 · QA & Test Automation',
     title: 'WordPress Testing & Automation Suite',
     desc: 'Designed and executed 100+ test cases covering functional, regression, and boundary scenarios for a live WordPress application. Automated 15+ critical end-to-end user flows using Cypress, significantly reducing manual regression time. Validated database integrity via direct SQL queries. Managed the complete defect lifecycle in Jira — triaging, tracking, and verifying fixes — resulting in zero critical bugs reaching production.',
     stack: ['Cypress', 'JavaScript', 'SQL', 'Jira', 'Manual Testing', 'E2E Automation', 'Regression Testing', 'Boundary Value Analysis'],
-    github: 'https://github.com/Immad-Baber/WordPress_sqe',
+    github: 'https://github.com/Immad-Baber',
     live: null,
+    note: 'Add your GitHub repo or Jira export link here.'
   },
   feature: {
     eyebrow: '10 · Formal Methods · SAT Solving',
     title: 'Feature Model Analysis Tool',
     desc: 'A Python + Tkinter tool that parses XML feature models and automatically translates mandatory, optional, XOR, and OR feature relationships into propositional logic clauses. PySAT performs real-time SAT validation; the tool computes the Minimum Working Product configuration and maps feature flags to source files — flagging inconsistencies between the model and the codebase across 50+ configurations.',
     stack: ['Python', 'PySAT', 'Tkinter', 'XML Parsing', 'Propositional Logic', 'Formal Methods', 'SAT Solving'],
-    github: 'https://github.com/Immad-Baber/Formal-Methods-Project',
+    github: 'https://github.com/Immad-Baber',
     live: null,
+    note: 'Add your GitHub repo link here.'
   }
 };
 
@@ -1422,7 +1422,6 @@ function openModal(key) {
   document.getElementById('modalEyebrow').textContent = p.eyebrow;
   document.getElementById('modalTitle').textContent = p.title;
   document.getElementById('modalDesc').textContent = p.desc;
-  document.getElementById('modalNote').innerHTML = '<span style="color:var(--accent);margin-right:.4rem">ℹ</span>' + p.note;
 
   const tagsEl = document.getElementById('modalTags');
   tagsEl.innerHTML = p.stack.map(t =>
@@ -1462,3 +1461,4 @@ document.querySelectorAll('[data-project]').forEach(link => {
 </script>
 </body>
 </html>
+
